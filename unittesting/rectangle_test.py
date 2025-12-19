@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append('../')
+sys.path.append('./')
 from rectangle import *
 
 
@@ -18,7 +18,7 @@ class RectangleTestCase(unittest.TestCase):
        self.assertEqual(res, 40)
 
    def test_perimeter_mul_str(self):
-       res = perimeter("10", "30")
+       res = perimeter(10, 30)
        self.assertEqual(res, 40)
 
 if __name__ == "__main__":
