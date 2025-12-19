@@ -17,9 +17,5 @@ class RectangleTestCase(unittest.TestCase):
        res = perimeter(10, 10)
        self.assertEqual(res, 40)
 
-   def test_perimeter_mul_str(self):
-       res = perimeter(10, 30)
-       self.assertEqual(res, 40)
-
 if __name__ == "__main__":
     unittest.main()
