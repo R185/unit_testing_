@@ -1,20 +1,29 @@
-name: CI
+name: Python Unit Tests
+
 on:
-    push:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
+  push:
+    branches:
+      - main
 
-# jobs запускаются параллельно, если не указана последовательность
 jobs:
-    # Название job вы можете назвать как угодно
-    my_build_job:
-      # Операционная система в виртуальной машине, в которой запускаются процессы
-      runs-on: ubuntu-latest
-        # Шаги
-      steps:
-          # Actions от github: проверяет репозиторий, гит и т.д.
-          - uses: actions/checkout@v3
+  test:
+    runs-on: ${{ matrix.os }}
 
-          - name: Run a one-line script
-            run: python3 unittesting/rectangle_test.py
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run unit tests
+        run: python unittesting/circle_test.py
+        run: python unittesting/rectangle_test.py
+        run: python unittesting/triangle_test.py
