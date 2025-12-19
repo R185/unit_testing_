@@ -17,4 +17,4 @@ jobs:
           - uses: actions/checkout@v3
 
           - name: Run a one-line script
-            run: python3 rectangle.py
+            run: python3 unittesting/rectangle_test.py
