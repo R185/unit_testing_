@@ -25,5 +25,5 @@ jobs:
 
       - name: Run unit tests
         run: python unittesting/circle_test.py
-        run: python unittesting/rectangle_test.py
-        run: python unittesting/triangle_test.py
+             python unittesting/rectangle_test.py
+             python unittesting/triangle_test.py
